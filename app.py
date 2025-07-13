@@ -361,8 +361,12 @@ if __name__ == '__main__':
     import os
     from socket import gethostname
 
+    # Railway sets PORT environment variable
     port = int(os.environ.get('PORT', 5000))
-    debug = os.environ.get('FLASK_ENV') != 'production'
+    debug = False  # Always False for production
+
+    print(f"🚀 Starting app on port: {port}")
+    print(f"🌐 Environment PORT: {os.environ.get('PORT', 'Not set')}")
 
     # Only run if not on PythonAnywhere
     if 'liveconsole' not in gethostname():
